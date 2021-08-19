@@ -197,7 +197,7 @@ type PanelToolbarControlsProps = Pick<Props, "additionalIcons" | "floating"> & {
 
 // Keep controls, which don't change often, in a pure component in order to avoid re-rendering the
 // whole PanelToolbar when only children change.
-const PanelToolbarControls = React.memo(function PanelToolbarControls({
+const PanelToolbarControls = function PanelToolbarControls({
   additionalIcons,
   showControls = false,
   floating = false,
@@ -236,12 +236,12 @@ const PanelToolbarControls = React.memo(function PanelToolbarControls({
       )}
     </div>
   );
-});
+};
 
 // Panel toolbar should be added to any panel that's part of the
 // react-mosaic layout.  It adds a drag handle, remove/replace controls
 // and has a place to add custom controls via it's children property
-export default React.memo<Props>(function PanelToolbar({
+export default function PanelToolbar({
   additionalIcons,
   children,
   floating = false,
@@ -249,7 +249,7 @@ export default React.memo<Props>(function PanelToolbar({
   hideToolbars = false,
   isUnknownPanel = false,
   backgroundColor,
-}: Props) {
+}: Props): JSX.Element {
   const { supportsStrictMode = true } = useContext(PanelContext) ?? {};
   const [containsOpen, setContainsOpen] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
@@ -283,7 +283,7 @@ export default React.memo<Props>(function PanelToolbar({
   });
 
   if (hideToolbars) {
-    return ReactNull;
+    return <></>;
   }
 
   // floating toolbars only show when hovered - but hovering over a context menu would hide the toolbar
@@ -314,4 +314,4 @@ export default React.memo<Props>(function PanelToolbar({
       </ChildToggleContainsOpen>
     </div>
   );
-});
+}

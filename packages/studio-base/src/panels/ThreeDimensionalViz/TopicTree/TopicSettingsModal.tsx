@@ -14,7 +14,7 @@
 import { DefaultButton, Dialog, DialogFooter } from "@fluentui/react";
 import { isEmpty, omit } from "lodash";
 import Tabs, { TabPane } from "rc-tabs";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 import ErrorBoundary from "@foxglove/studio-base/components/ErrorBoundary";
 import { RenderToBodyComponent } from "@foxglove/studio-base/components/RenderToBodyComponent";
@@ -91,7 +91,7 @@ function TopicSettingsModal({
   sceneBuilderMessage,
   setCurrentEditingTopic,
   settingsByKey,
-}: Props) {
+}: Props): JSX.Element {
   const topicSettingsKey = `t:${topicName}`;
   const onSettingsChange = useCallback(
     (
@@ -181,4 +181,4 @@ function TopicSettingsModal({
   );
 }
 
-export default React.memo<Props>(TopicSettingsModal);
+export default TopicSettingsModal;

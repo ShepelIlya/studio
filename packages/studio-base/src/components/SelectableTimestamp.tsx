@@ -82,14 +82,14 @@ function getValidTime(timeStr: string, start: Time, end: Time, isRosTime: boolea
   return (validTime && clampTime(validTime, start, end)) || undefined;
 }
 
-export default React.memo<Props>(function SelectableTimestamp({
+export default function SelectableTimestamp({
   currentTime,
   startTime,
   endTime,
   seekPlayback,
   pausePlayback,
   timezone,
-}: Props) {
+}: Props): JSX.Element {
   const [rosTimeStr, setRosTimeStr] = React.useState<string>(
     `${currentTime.sec}.${currentTime.nsec}`,
   );
@@ -188,4 +188,4 @@ export default React.memo<Props>(function SelectableTimestamp({
       </TimestampWrapper>
     </SRoot>
   );
-});
+}

@@ -90,7 +90,7 @@ const SegmentedControlWrapper = styled.div`
   align-items: center;
 `;
 
-const RainbowText = React.memo(function RainbowText({ children }: { children: string }) {
+const RainbowText = function RainbowText({ children }: { children: string }) {
   return (
     <>
       {Array.from(children, (child, idx) => (
@@ -101,7 +101,7 @@ const RainbowText = React.memo(function RainbowText({ children }: { children: st
       ))}
     </>
   );
-});
+};
 
 export default function PointCloudSettingsEditor(
   props: TopicSettingsEditorProps<PointCloud2, PointCloudSettings>,

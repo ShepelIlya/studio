@@ -214,7 +214,7 @@ export const useSearchMatches = ({
   ]);
 };
 
-const SearchText = React.memo<SearchTextComponentProps>(function SearchText({
+const SearchText = function SearchText({
   searchTextOpen,
   toggleSearchTextOpen,
   searchText,
@@ -227,7 +227,7 @@ const SearchText = React.memo<SearchTextComponentProps>(function SearchText({
   cameraState,
   transforms,
   rootTf,
-}: SearchTextComponentProps) {
+}: SearchTextComponentProps): JSX.Element {
   const currentMatch = searchTextMatches[selectedMatchIndex];
   const iterateCurrentIndex = useCallback(
     (iterator: number) => {
@@ -319,6 +319,6 @@ const SearchText = React.memo<SearchTextComponentProps>(function SearchText({
       </Icon>
     </div>
   );
-});
+};
 
 export default SearchText;

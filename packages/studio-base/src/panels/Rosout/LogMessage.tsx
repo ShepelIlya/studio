@@ -45,7 +45,7 @@ const classes = mergeStyleSets({
   },
 });
 
-export default React.memo(function LogMessage({ msg }: { msg: RosgraphMsgs$Log }) {
+export default function LogMessage({ msg }: { msg: RosgraphMsgs$Log }): JSX.Element {
   const altStr = `${msg.file}:${msg.line}`;
   const strLevel = LevelToString(msg.level);
   const levelClassName = logLevelColorsStyle[strLevel.toLocaleLowerCase()];
@@ -83,4 +83,4 @@ export default React.memo(function LogMessage({ msg }: { msg: RosgraphMsgs$Log }
       </div>
     </div>
   );
-});
+}

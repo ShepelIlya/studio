@@ -51,7 +51,7 @@ type PropsWithConfig = Props & {
   saveConfig: SaveConfig<PanelConfig>;
 };
 
-const InteractionsBaseComponent = React.memo<PropsWithConfig>(function InteractionsBaseComponent({
+const InteractionsBaseComponent = function InteractionsBaseComponent({
   selectedObject,
   interactionsTabType,
   setInteractionsTabType,
@@ -121,7 +121,7 @@ const InteractionsBaseComponent = React.memo<PropsWithConfig>(function Interacti
       </ToolGroup>
     </ExpandingToolbar>
   );
-});
+};
 
 // Wrap the Interactions so that we don't rerender every time any part of the PanelContext config changes, but just the
 // one value that we care about.

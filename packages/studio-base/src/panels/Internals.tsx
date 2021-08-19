@@ -88,7 +88,7 @@ type RecordedData = {
   };
 };
 
-const HistoryRecorder = React.memo(function HistoryRecorder({
+const HistoryRecorder = function HistoryRecorder({
   topicsByName,
   recordingTopics,
   recordedData,
@@ -103,7 +103,7 @@ const HistoryRecorder = React.memo(function HistoryRecorder({
     frame,
   };
   return ReactNull;
-});
+};
 
 // Display internal state for debugging and viewing topic dependencies.
 function Internals() {

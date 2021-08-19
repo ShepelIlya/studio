@@ -39,7 +39,7 @@ function DrawingTools({
   onSetPolygons,
   polygonBuilder,
   showForTests,
-}: Props) {
+}: Props): JSX.Element {
   const [selectedTab, setSelectedTab] = React.useState<DrawingTabType | undefined>(
     defaultSelectedTab,
   );
@@ -48,7 +48,11 @@ function DrawingTools({
     AppSetting.ENABLE_DRAWING_POLYGONS,
   );
 
-  return enableDrawingPolygons || showForTests === true ? (
+  if (!enableDrawingPolygons && showForTests !== true) {
+    return <></>;
+  }
+
+  return (
     <ExpandingToolbar
       tooltip="Drawing tools"
       icon={
@@ -67,9 +71,7 @@ function DrawingTools({
         <Polygons onSetPolygons={onSetPolygons} polygonBuilder={polygonBuilder} />
       </ToolGroup>
     </ExpandingToolbar>
-  ) : (
-    ReactNull
   );
 }
 
-export default React.memo<Props>(DrawingTools);
+export default DrawingTools;

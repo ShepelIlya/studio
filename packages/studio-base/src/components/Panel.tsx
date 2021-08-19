@@ -581,7 +581,7 @@ export default function Panel<Config extends PanelConfig>(
     );
   }
 
-  return Object.assign(React.memo(ConnectedPanel), {
+  return Object.assign(ConnectedPanel, {
     defaultConfig: PanelComponent.defaultConfig,
     panelType: PanelComponent.panelType,
     displayName: `Panel(${PanelComponent.displayName ?? PanelComponent.name})`,

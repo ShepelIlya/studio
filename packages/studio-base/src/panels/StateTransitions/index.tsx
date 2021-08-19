@@ -186,7 +186,7 @@ type Props = {
   saveConfig: (arg0: Partial<StateTransitionConfig>) => void;
 };
 
-const StateTransitions = React.memo(function StateTransitions(props: Props) {
+const StateTransitions = function StateTransitions(props: Props) {
   const { config, saveConfig } = props;
   const { paths } = config;
 
@@ -445,7 +445,7 @@ const StateTransitions = React.memo(function StateTransitions(props: Props) {
       </SChartContainerOuter>
     </SRoot>
   );
-});
+};
 
 export default Panel(
   Object.assign(StateTransitions, {

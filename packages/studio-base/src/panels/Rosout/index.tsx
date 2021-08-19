@@ -38,7 +38,7 @@ type Props = {
   saveConfig: (arg0: Config) => void;
 };
 
-const RosoutPanel = React.memo(({ config, saveConfig }: Props) => {
+const RosoutPanel = ({ config, saveConfig }: Props) => {
   const { topics } = PanelAPI.useDataSourceInfo();
   const { minLogLevel, searchTerms } = config;
 
@@ -99,7 +99,7 @@ const RosoutPanel = React.memo(({ config, saveConfig }: Props) => {
       </Stack>
     </Stack>
   );
-});
+};
 
 RosoutPanel.displayName = "Rosout";
 

@@ -39,7 +39,7 @@ function MainToolbar({
   onToggleCameraMode,
   onToggleDebug,
   perspective = false,
-}: Props) {
+}: Props): JSX.Element {
   const cameraModeTip = perspective ? "Switch to 2D camera" : "Switch to 3D camera";
   const measureActive = measureState === "place-start" || measureState === "place-finish";
   return (
@@ -83,4 +83,4 @@ function MainToolbar({
   );
 }
 
-export default React.memo<Props>(MainToolbar);
+export default MainToolbar;

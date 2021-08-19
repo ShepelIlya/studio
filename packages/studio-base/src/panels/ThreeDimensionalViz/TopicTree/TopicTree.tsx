@@ -244,7 +244,7 @@ type BaseProps = SharedProps & {
   treeHeight: number;
 };
 
-function TopicTree({
+function TopicTreeInner({
   allKeys,
   availableNamespacesByTopic,
   checkedKeys,
@@ -466,7 +466,7 @@ function TopicTree({
 }
 
 // A wrapper that can be resized horizontally, and it dynamically calculates the width of the base topic tree component.
-function TopicTreeWrapper({
+function TopicTree({
   containerWidth,
   containerHeight,
   pinTopics,
@@ -475,7 +475,7 @@ function TopicTreeWrapper({
   saveConfig,
   setShowTopicTree,
   ...rest
-}: Props) {
+}: Props): JSX.Element {
   const defaultTreeWidth = clamp(containerWidth, DEFAULT_XS_WIDTH, DEFAULT_WIDTH);
   const renderTopicTree = pinTopics || showTopicTree;
 
@@ -514,7 +514,7 @@ function TopicTreeWrapper({
           unmountOnExit
         >
           <STopicTree onClick={(e) => e.stopPropagation()}>
-            <TopicTree
+            <TopicTreeInner
               {...rest}
               sceneErrorsByKey={sceneErrorsByKey}
               saveConfig={saveConfig}
@@ -533,4 +533,4 @@ function TopicTreeWrapper({
   );
 }
 
-export default React.memo<Props>(TopicTreeWrapper);
+export default TopicTree;

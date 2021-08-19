@@ -238,7 +238,7 @@ const configSchema: PanelConfigSchema<Config> = [
 ];
 
 export default Panel(
-  Object.assign(React.memo(Publish), {
+  Object.assign(Publish, {
     panelType: "Publish",
     defaultConfig: {
       topicName: "",

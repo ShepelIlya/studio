@@ -33,12 +33,12 @@ type Props = {
   isTimestampScale: boolean;
 };
 
-export default React.memo<Props>(function HoverBar({
+export default function HoverBar({
   children,
   componentId,
   isTimestampScale,
   scales,
-}: Props) {
+}: Props): JSX.Element {
   const hoverValue = useHoverValue({ componentId, isTimestampScale });
 
   const positionX = useMemo(() => {
@@ -66,4 +66,4 @@ export default React.memo<Props>(function HoverBar({
   }, [positionX]);
 
   return <SWrapper style={{ visibility, transform }}>{children}</SWrapper>;
-});
+}

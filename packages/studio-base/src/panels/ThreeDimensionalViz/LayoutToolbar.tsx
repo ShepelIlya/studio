@@ -86,7 +86,7 @@ function LayoutToolbar({
   targetPose,
   toggleSearchTextOpen,
   transforms,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <>
       <MeasuringTool
@@ -158,4 +158,4 @@ function LayoutToolbar({
   );
 }
 
-export default React.memo<Props>(LayoutToolbar);
+export default LayoutToolbar;
