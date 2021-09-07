@@ -11,6 +11,7 @@
 //   found at http://www.apache.org/licenses/LICENSE-2.0
 //   You may not use this file except in compliance with the License.
 
+import { mergeStyleSets } from "@fluentui/react";
 import ArrowLeftIcon from "@mdi/svg/svg/arrow-left.svg";
 import ArrowRightIcon from "@mdi/svg/svg/arrow-right.svg";
 import ChevronDownIcon from "@mdi/svg/svg/chevron-down.svg";
@@ -44,7 +45,6 @@ import TopicViewModeSelector from "./TopicViewModeSelector";
 import { ROW_HEIGHT, TREE_SPACING } from "./constants";
 import NoMatchesSvg from "./noMatches.svg";
 import renderTreeNodes, { SWITCHER_WIDTH } from "./renderTreeNodes";
-import topicTreeTransition from "./topicTreeTransition.module.scss";
 import {
   DerivedCustomSettingsByKey,
   GetIsNamespaceCheckedByDefault,
@@ -205,6 +205,23 @@ const SNoMatchesText = styled.div`
   text-align: center;
   line-height: 130%;
 `;
+
+const transitionClasses = mergeStyleSets({
+  enter: {
+    opacity: 0,
+    transform: "translateX(-20px)",
+    pointerEvents: "none",
+  },
+  exitActive: {
+    opacity: 0,
+    transform: "translateX(-20px)",
+    pointerEvents: "none",
+  },
+  enterActive: {
+    opacity: 1,
+    transform: "none",
+  },
+});
 
 type SharedProps = {
   allKeys: string[];
@@ -514,7 +531,7 @@ function TopicTreeWrapper({
         <CSSTransition
           timeout={150}
           in={renderTopicTree}
-          classNames={{ ...topicTreeTransition }}
+          classNames={transitionClasses}
           mountOnEnter
           unmountOnExit
         >
