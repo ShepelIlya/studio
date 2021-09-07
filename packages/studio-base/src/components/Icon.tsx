@@ -18,8 +18,6 @@ import { CSSProperties } from "react";
 import Tooltip, { useTooltip } from "@foxglove/studio-base/components/Tooltip";
 import { colors } from "@foxglove/studio-base/util/sharedStyleConstants";
 
-// import styles from "./icon.module.scss";
-
 type IconSizeKey = "xlarge" | "large" | "medium" | "small" | "xsmall" | "xxsmall";
 type IconSize = [IconSizeKey, number];
 
